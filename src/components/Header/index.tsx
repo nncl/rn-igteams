@@ -1,9 +1,19 @@
-import { Container, Logo } from './styles';
+import { BackButton, Container, IconBack, Logo } from './styles';
 
 import logo from '@assets/logo.png';
 
-export const Header = () => (
+type Props = {
+  showBackButton?: boolean;
+};
+
+export const Header = ({ showBackButton = false }: Props) => (
   <Container>
+    {showBackButton && (
+      <BackButton>
+        <IconBack />
+      </BackButton>
+    )}
+
     <Logo source={logo} />
   </Container>
 );
